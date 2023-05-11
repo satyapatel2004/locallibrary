@@ -7,6 +7,5 @@ from . import views
 #it points to. (use it in other parts of the application)
 
 urlpatterns = [
-    path('', views.index, name='index')
-
+    path('', views.index, name='index'),
 ]

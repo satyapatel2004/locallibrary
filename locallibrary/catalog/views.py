@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views import generic 
+
 #importing the models that we are going to use to access data in the views. 
 from .models import Book, Author, BookInstance, Genre
 
@@ -33,5 +35,11 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
+class BookListView(generic.ListView):
+    #the generic view will query the database to get all records 
+    #for the specified Book, and render a template 
+    model = Book
 
+class BookDetailView(generic.DetailView):
+    model = Book 
 
